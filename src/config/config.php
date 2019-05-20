@@ -1,10 +1,10 @@
 <?php
 
 
-use example\Mutation\ExampleMutation;
-use example\Query\ExampleQuery;
-use example\Type\ExampleRelationType;
 use example\Type\ExampleType;
+use example\Query\ExampleQuery;
+use example\Mutation\ExampleMutation;
+use example\Type\ExampleRelationType;
 
 return [
 
@@ -41,7 +41,7 @@ return [
     //     'mutation' => '\Rebing\GraphQL\GraphQLController@mutation'
     // ]
     //
-    'controllers' => \Rebing\GraphQL\GraphQLController::class . '@query',
+    'controllers' => \Rebing\GraphQL\GraphQLController::class.'@query',
 
     // Any middleware for the graphql route group
     'middleware' => [],
@@ -133,7 +133,7 @@ return [
     // ]
     'error_formatter' => ['\Rebing\GraphQL\GraphQL', 'formatError'],
 
-    /**
+    /*
      * Custom Error Handling
      *
      * Expected handler signature is: function (array $errors, callable $formatter): array
@@ -153,7 +153,7 @@ return [
     'security' => [
         'query_max_complexity' => null,
         'query_max_depth' => null,
-        'disable_introspection' => false
+        'disable_introspection' => false,
     ],
 
     /*

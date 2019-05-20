@@ -14,8 +14,8 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->queries = include(__DIR__.'/Objects/queries.php');
-        $this->data = include(__DIR__.'/Objects/data.php');
+        $this->queries = include __DIR__.'/Objects/queries.php';
+        $this->data = include __DIR__.'/Objects/data.php';
     }
 
     protected function getEnvironmentSetUp($app)
@@ -28,8 +28,8 @@ class TestCase extends BaseTestCase
                 'examplesFiltered' => ExamplesFilteredQuery::class,
             ],
             'mutation' => [
-                'updateExample' => UpdateExampleMutation::class
-            ]
+                'updateExample' => UpdateExampleMutation::class,
+            ],
         ]);
 
         $app['config']->set('graphql.schemas.custom', [
@@ -37,8 +37,8 @@ class TestCase extends BaseTestCase
                 'examplesCustom' => ExamplesQuery::class,
             ],
             'mutation' => [
-                'updateExampleCustom' => UpdateExampleMutation::class
-            ]
+                'updateExampleCustom' => UpdateExampleMutation::class,
+            ],
         ]);
 
         $app['config']->set('graphql.types', [
@@ -85,14 +85,14 @@ class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [
-            \Rebing\GraphQL\GraphQLServiceProvider::class
+            \Rebing\GraphQL\GraphQLServiceProvider::class,
         ];
     }
 
     protected function getPackageAliases($app)
     {
         return [
-            'GraphQL' => \Rebing\GraphQL\Support\Facades\GraphQL::class
+            'GraphQL' => \Rebing\GraphQL\Support\Facades\GraphQL::class,
         ];
     }
 }

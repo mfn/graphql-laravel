@@ -6,7 +6,6 @@ use Illuminate\Console\GeneratorCommand;
 
 class TypeMakeCommand extends GeneratorCommand
 {
-
     /**
      * The name and signature of the console command.
      *
@@ -33,7 +32,7 @@ class TypeMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/stubs/type.stub';
+        return __DIR__.'/stubs/type.stub';
     }
 
     /**
@@ -45,7 +44,7 @@ class TypeMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\GraphQL\Type';
+        return $rootNamespace.'\GraphQL\Type';
     }
 
     /**

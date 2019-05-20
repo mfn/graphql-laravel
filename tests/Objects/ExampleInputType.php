@@ -9,7 +9,7 @@ class ExampleInputType extends GraphQLType
 
     protected $attributes = [
         'name' => 'ExampleInput',
-        'description' => 'An example input'
+        'description' => 'An example input',
     ];
 
     public function fields()
@@ -17,9 +17,9 @@ class ExampleInputType extends GraphQLType
         return [
             'test' => [
                 'type' => Type::string(),
-                'description' => 'A test field'
+                'description' => 'A test field',
             ],
-            'test_validation' => ExampleValidationField::class
+            'test_validation' => ExampleValidationField::class,
         ];
     }
 }

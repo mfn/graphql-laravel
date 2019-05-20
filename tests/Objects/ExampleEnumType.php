@@ -13,9 +13,9 @@ class ExampleEnumType extends GraphQLType
         'values' => [
             'TEST' => [
                 'value' => 1,
-                'description' => 'test'
-            ]
-        ]
+                'description' => 'test',
+            ],
+        ],
     ];
 
     public function fields()
@@ -23,9 +23,9 @@ class ExampleEnumType extends GraphQLType
         return [
             'test' => [
                 'type' => Type::string(),
-                'description' => 'A test field'
+                'description' => 'A test field',
             ],
-            'test_validation' => ExampleValidationField::class
+            'test_validation' => ExampleValidationField::class,
         ];
     }
 }

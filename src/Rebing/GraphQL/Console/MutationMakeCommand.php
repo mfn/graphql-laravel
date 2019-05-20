@@ -6,7 +6,6 @@ use Illuminate\Console\GeneratorCommand;
 
 class MutationMakeCommand extends GeneratorCommand
 {
-
     /**
      * The name and signature of the console command.
      *
@@ -33,7 +32,7 @@ class MutationMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/stubs/mutation.stub';
+        return __DIR__.'/stubs/mutation.stub';
     }
 
     /**
@@ -45,7 +44,7 @@ class MutationMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\GraphQL\Mutation';
+        return $rootNamespace.'\GraphQL\Mutation';
     }
 
     /**

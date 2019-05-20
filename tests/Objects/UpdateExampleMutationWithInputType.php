@@ -1,8 +1,8 @@
 <?php
 
-use Rebing\GraphQL\Support\Facades\GraphQL;
-use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Mutation;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 
 class UpdateExampleMutationWithInputType extends Mutation
 {

@@ -1,13 +1,12 @@
 <?php
 
-use Rebing\Support\Field;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\InputObjectType;
 
 class InputTypeTest extends TestCase
 {
     /**
-     * Test to type
+     * Test to type.
      *
      * @test
      */

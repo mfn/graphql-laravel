@@ -5,10 +5,9 @@ use Rebing\GraphQL\Support\InterfaceType;
 
 class ExampleInterfaceType extends InterfaceType
 {
-
     protected $attributes = [
         'name' => 'ExampleInterface',
-        'description' => 'An example interface'
+        'description' => 'An example interface',
     ];
 
     public function resolveType($root)
@@ -21,8 +20,8 @@ class ExampleInterfaceType extends InterfaceType
         return [
             'test' => [
                 'type' => Type::string(),
-                'description' => 'A test field'
-            ]
+                'description' => 'A test field',
+            ],
         ];
     }
 }

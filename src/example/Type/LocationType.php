@@ -2,12 +2,12 @@
 
 namespace Rebing\GraphQL\Type\Location;
 
+use Models\Location;
 use GraphQL\Type\Definition\Type;
-use Rebing\GraphQL\Support\Type as GraphQLType;
-use Models\Location; // not included in this project
+use Rebing\GraphQL\Support\Type as GraphQLType; // not included in this project
 
-class LocationType extends GraphQLType {
-
+class LocationType extends GraphQLType
+{
     protected $attributes = [
         'name'          => 'Location',
         'description'   => 'A location on the map',
@@ -47,5 +47,4 @@ class LocationType extends GraphQLType {
             ],
         ];
     }
-
 }

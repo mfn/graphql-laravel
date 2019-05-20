@@ -5,10 +5,9 @@ use Rebing\GraphQL\Support\Type as GraphQLType;
 
 class CustomExampleType extends GraphQLType
 {
-
     protected $attributes = [
         'name' => 'CustomExample',
-        'description' => 'An example'
+        'description' => 'An example',
     ];
 
     public function fields()
@@ -16,8 +15,8 @@ class CustomExampleType extends GraphQLType
         return [
             'test' => [
                 'type' => Type::string(),
-                'description' => 'A test field'
-            ]
+                'description' => 'A test field',
+            ],
         ];
     }
 }

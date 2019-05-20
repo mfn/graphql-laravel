@@ -7,13 +7,13 @@ class ExampleUnionType extends BaseUnionType
 {
     protected $attributes = [
         'name' => 'ExampleUnion',
-        'description' => 'An example union'
+        'description' => 'An example union',
     ];
 
     public function types()
     {
         return [
-            GraphQL::type('Example')
+            GraphQL::type('Example'),
         ];
     }
 
@@ -27,9 +27,9 @@ class ExampleUnionType extends BaseUnionType
         return [
             'test' => [
                 'type' => Type::string(),
-                'description' => 'A test field'
+                'description' => 'A test field',
             ],
-            'test_validation' => ExampleValidationField::class
+            'test_validation' => ExampleValidationField::class,
         ];
     }
 }

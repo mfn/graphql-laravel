@@ -6,7 +6,8 @@ if (! function_exists('is_lumen')) {
      *
      * @return bool
      */
-    function is_lumen() {
+    function is_lumen()
+    {
         return class_exists('Laravel\Lumen\Application');
     }
 }

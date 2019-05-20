@@ -2,12 +2,12 @@
 
 use GraphQL\GraphQL;
 use Illuminate\Support\Arr;
-use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Mutation;
 use Rebing\Services\Auth\UserLoginService; // not included in this project
 
-class LoginMutation extends Mutation {
-
+class LoginMutation extends Mutation
+{
     protected $attributes = [
         'name'          => 'Login',
         'description'   => 'Log the user in by email',
@@ -46,5 +46,4 @@ class LoginMutation extends Mutation {
 
         return $user;
     }
-
 }

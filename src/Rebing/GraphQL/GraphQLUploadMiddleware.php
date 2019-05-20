@@ -3,14 +3,14 @@
 namespace Rebing\GraphQL;
 
 use Closure;
-use GraphQL\Error\InvariantViolation;
-use GraphQL\Server\RequestError;
 use GraphQL\Utils\Utils;
 use Illuminate\Http\Request;
+use GraphQL\Server\RequestError;
+use GraphQL\Error\InvariantViolation;
 
 class GraphQLUploadMiddleware
 {
-     /**
+    /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -20,12 +20,12 @@ class GraphQLUploadMiddleware
     public function handle(Request $request, Closure $next)
     {
         $request = $this->processRequest($request);
+
         return $next($request);
     }
 
-
     /**
-     * Process the request and return either a modified request or the original one
+     * Process the request and return either a modified request or the original one.
      *
      * @param \Illuminate\Http\Request $request
      *
@@ -44,7 +44,7 @@ class GraphQLUploadMiddleware
     }
 
     /**
-     * Inject uploaded files defined in the 'map' key into the 'variables' key
+     * Inject uploaded files defined in the 'map' key into the 'variables' key.
      *
      * @param  \Illuminate\Http\Request  $request
      *
@@ -53,7 +53,7 @@ class GraphQLUploadMiddleware
     private function parseUploadedFiles(Request $request)
     {
         $bodyParams = $request->all();
-        if (!isset($bodyParams['map'])) {
+        if (! isset($bodyParams['map'])) {
             throw new RequestError('The request must define a `map`');
         }
 
@@ -68,7 +68,7 @@ class GraphQLUploadMiddleware
             foreach ($locations as $location) {
                 $items = &$result;
                 foreach (explode('.', $location) as $key) {
-                    if (!isset($items[$key]) || !is_array($items[$key])) {
+                    if (! isset($items[$key]) || ! is_array($items[$key])) {
                         $items[$key] = [];
                     }
                     $items = &$items[$key];
@@ -84,7 +84,7 @@ class GraphQLUploadMiddleware
     }
 
     /**
-     * Validates that the request meet our expectations
+     * Validates that the request meet our expectations.
      *
      * @param  \Illuminate\Http\Request  $request
      */
@@ -98,9 +98,9 @@ class GraphQLUploadMiddleware
             );
         }
 
-        if (!is_array($bodyParams)) {
+        if (! is_array($bodyParams)) {
             throw new RequestError(
-                'GraphQL Server expects JSON object or array, but got ' . Utils::printSafeJson($bodyParams)
+                'GraphQL Server expects JSON object or array, but got '.Utils::printSafeJson($bodyParams)
             );
         }
 

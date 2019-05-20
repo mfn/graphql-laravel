@@ -29,7 +29,7 @@ class ExamplesPaginationQuery extends Query
 
     public function resolve($root, $args)
     {
-        $data = include(__DIR__.'/data.php');
+        $data = include __DIR__.'/data.php';
 
         $take = $args['take'];
         $page = $args['page'] - 1;

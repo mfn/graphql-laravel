@@ -1,15 +1,14 @@
 <?php
 
 use Illuminate\Support\Arr;
-use Rebing\GraphQL\Support\Facades\GraphQL;
-use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Mutation;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 
 class UpdateExampleMutation extends Mutation
 {
-
     protected $attributes = [
-        'name' => 'updateExample'
+        'name' => 'updateExample',
     ];
 
     public function type()
@@ -20,7 +19,7 @@ class UpdateExampleMutation extends Mutation
     public function rules(array $args = [])
     {
         return [
-            'test' => ['required']
+            'test' => ['required'],
         ];
     }
 
@@ -29,13 +28,13 @@ class UpdateExampleMutation extends Mutation
         return [
             'test' => [
                 'name' => 'test',
-                'type' => Type::string()
+                'type' => Type::string(),
             ],
 
             'test_with_rules' => [
                 'name' => 'test',
                 'type' => Type::string(),
-                'rules' => ['required']
+                'rules' => ['required'],
             ],
 
             'test_with_rules_closure' => [
@@ -43,7 +42,7 @@ class UpdateExampleMutation extends Mutation
                 'type' => Type::string(),
                 'rules' => function () {
                     return ['required'];
-                }
+                },
             ],
         ];
     }
@@ -51,7 +50,7 @@ class UpdateExampleMutation extends Mutation
     public function resolve($root, $args)
     {
         return [
-            'test' => Arr::get($args, 'test')
+            'test' => Arr::get($args, 'test'),
         ];
     }
 }

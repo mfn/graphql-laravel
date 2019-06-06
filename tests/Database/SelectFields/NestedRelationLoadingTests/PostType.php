@@ -25,6 +25,9 @@ class PostType extends GraphQLType
             'comments' => [
                 'type' => Type::nonNull(Type::listOf(Type::nonNull(GraphQL::type('Comment')))),
             ],
+            'flag' => [
+                'type' => Type::nonNull(Type::boolean()),
+            ],
             'id' => [
                 'type' => Type::nonNull(Type::ID()),
             ],

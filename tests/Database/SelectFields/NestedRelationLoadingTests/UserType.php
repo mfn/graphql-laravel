@@ -27,6 +27,16 @@ class UserType extends GraphQLType
             ],
             'posts' => [
                 'type' => Type::nonNull(Type::listOf(Type::nonNull(GraphQL::type('Post')))),
+                'args' => [
+                    'flag' => [
+                        'type' => Type::boolean(),
+                    ],
+                ],
+                'query' => function ($args, $query) {
+                    if (isset($args['flag'])) {
+                        $query->where('posts.flag', '=', true);
+                    }
+                },
             ],
         ];
     }

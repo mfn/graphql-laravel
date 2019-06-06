@@ -8,8 +8,8 @@ use Closure;
 use Illuminate\Support\Arr;
 use GraphQL\Error\InvariantViolation;
 use GraphQL\Type\Definition\UnionType;
-use GraphQL\Type\Definition\ListOfType;
 use GraphQL\Type\Definition\ResolveInfo;
+use GraphQL\Type\Definition\WrappingType;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -37,6 +37,10 @@ class SelectFields
      */
     public function __construct(ResolveInfo $info, $parentType, array $args)
     {
+        if ($parentType instanceof WrappingType) {
+            $parentType = $parentType->getWrappedType(true);
+        }
+
         if (! is_null($info->fieldNodes[0]->selectionSet)) {
             self::$args = $args;
 
@@ -60,8 +64,8 @@ class SelectFields
         $select = [];
         $with = [];
 
-        if (is_a($parentType, ListOfType::class)) {
-            $parentType = $parentType->getWrappedType();
+        if ($parentType instanceof WrappingType) {
+            $parentType = $parentType->getWrappedType(true);
         }
         $parentTable = self::getTableNameFromParentType($parentType);
         $primaryKey = self::getPrimaryKeyFromParentType($parentType);
@@ -132,6 +136,9 @@ class SelectFields
             if ($canSelect === true) {
                 // Add a query, if it exists
                 $customQuery = Arr::get($fieldObject->config, 'query');
+                if ($customQuery) {
+                    var_dump('has custmo query');
+                }
 
                 // Check if the field is a relation that needs to be requested from the DB
                 $queryable = self::isQueryable($fieldObject->config);
